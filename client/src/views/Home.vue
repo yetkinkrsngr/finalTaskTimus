@@ -45,4 +45,16 @@ header {
   font-weight: 700;
   color: var(--dark);
 }
+.factoryInfos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 400px) {
+  .factoryInfos {
+    flex-direction: column;
+  }
+}
 </style>

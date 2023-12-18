@@ -23,7 +23,7 @@ export default {
   justify-content: center;
   width: 20rem;
   height: 20rem;
-  background-color: var(--gray);
+  background-color: var(--light);
   border-radius: 1rem;
   margin: 1rem;
   padding: 1rem;
