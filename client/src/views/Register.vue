@@ -34,6 +34,17 @@
             placeholder="**************"
           />
         </label>
+        <label for="fullname">
+          <span>enter your fullname</span>
+          <input type="text" v-model="fullname" placeholder="John Doe" />
+        </label>
+      </label>
+      <label>
+        <span>What Your Role</span>
+        <select v-model="role">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
       </label>
       <input type="submit" value="Register" />
     </form>
@@ -70,8 +81,6 @@ footer {
   text-align: center;
   padding: 1.5rem;
   padding-bottom: 3rem;
-  position: relative;
-  top: -680px;
 }
 h2 {
   font-size: 2.125rem;
@@ -138,5 +147,22 @@ input[type='submit']:hover {
   border: 1px solid var(--primary);
   font-weight: 500;
   box-shadow: 0px 4px 12px 4px rgba(0, 0, 0, 0.16);
+}
+select {
+  display: block;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  background-color: var(--light);
+  border: none;
+  margin-bottom: 55px;
+}
+select option {
+  color: var(--dark);
+  padding: 5px;
 }
 </style>
