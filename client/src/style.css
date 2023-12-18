@@ -47,3 +47,20 @@ input {
   color: var(--primary);
   transform: scale(1.2);
 }
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: var(--light) 2px solid;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  margin-top: 15px;
+}
+.btn:hover {
+  background-color: var(--light);
+  color: var(--primary);
+}

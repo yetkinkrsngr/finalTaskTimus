@@ -1,7 +1,9 @@
 <template>
   <main>
     <header>
-      <h1 class="logo">POWER APP</h1>
+      <router-link to="/">
+        <h1 class="logo">POWER APP</h1>
+      </router-link>
       <h2>Login</h2>
       <p>
         login or creater an account to start using the

@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="imgSide">
-      <img src="" alt="" />
+      <img src="../../public/img/Factory.jpg" alt="" />
     </div>
     <div class="infoSide">
       <h3 class="nameFactory">Factory 1</h3>

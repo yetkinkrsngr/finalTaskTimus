@@ -1,7 +1,9 @@
 <template>
   <main>
     <header>
-      <h1 class="logo">POWER APP</h1>
+      <router-link to="/">
+        <h1 class="logo">POWER APP</h1>
+      </router-link>
       <h2>Login</h2>
       <p>
         Welcome to Register Form of
@@ -33,8 +35,14 @@
           />
         </label>
       </label>
-      <input type="submit" value="Save" placeholder="Save" />
+      <input type="submit" value="Register" />
     </form>
+    <footer>
+      <p>
+        Do you have an account?
+        <router-link to="/login">Login</router-link>
+      </p>
+    </footer>
   </main>
 </template>
 <script setup>
@@ -56,12 +64,14 @@ header {
   padding: 1.5rem;
 }
 footer {
-  background-color: #fff;
+  background: transparent;
   width: 100%;
   color: var(--dark);
   text-align: center;
   padding: 1.5rem;
   padding-bottom: 3rem;
+  position: relative;
+  top: -680px;
 }
 h2 {
   font-size: 2.125rem;
