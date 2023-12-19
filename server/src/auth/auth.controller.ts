@@ -1,15 +1,17 @@
-import { Controller } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { Controller, Post, Body } from '@nestjs/common';
 
 @Controller('auth')
 export class AuthController {
-  @Post('register')
-  async registerUser(@Body() userData: any): Promise<any> {
-    // Elasticsearch'a veriyi gönder
-    const result = await this.elasticsearchService.index({
-      index: 'users',
-      body: userData,
-    });
+  constructor(private readonly authService: AuthService) {}
 
-    return result;
+  @Post('register')
+  async registerUser(
+    @Body('userName') userName: string,
+    @Body('password') password: string,
+    @Body('email') email: string,
+    @Body('role') role: string,
+  ): Promise<any> {
+    return this.authService.registerUser(userName, password, email, role);
   }
 }

@@ -13,13 +13,23 @@
       </router-link>
     </header>
     <section></section>
+    <article class="lang">
+      <img class="imgCountry" :src="imageSrc" alt="" @click="toggleLanguage" />
+    </article>
   </main>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-const email = ref('');
-const password = ref('');
+
+const imageSrc = ref('../../public/img/tr.png');
+
+const toggleLanguage = () => {
+  imageSrc.value =
+    imageSrc.value === '../../public/img/eng.png'
+      ? '../../public/img/tr.png'
+      : '../../public/img/eng.png';
+};
 </script>
 
 <style scoped>
@@ -61,7 +71,24 @@ header h2 {
   font-weight: 700;
   text-align: center;
 }
-
+.lang {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+}
+.lang img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.3s ease-in-out;
+}
+.lang img:hover {
+  transform: scale(1.3);
+}
 @media (min-width: 400px) {
   main {
     flex-direction: row;

@@ -11,7 +11,7 @@
       </p>
     </header>
     <form @submit.prevent="">
-      <label for="fullname">
+      <label>
         <span>enter your fullname</span>
         <input type="text" v-model="fullname" placeholder="John Doe" />
       </label>
@@ -26,18 +26,14 @@
           v-model="password"
           placeholder="**************"
         />
-        <label>
-          <span>Repeat your password</span>
-          <input
-            type="password"
-            v-model="password"
-            placeholder="**************"
-          />
-        </label>
-        <label for="fullname">
-          <span>enter your fullname</span>
-          <input type="text" v-model="fullname" placeholder="John Doe" />
-        </label>
+      </label>
+      <label>
+        <span>Repeat your password</span>
+        <input
+          type="password"
+          v-model="repeatPassword"
+          placeholder="**************"
+        />
       </label>
       <label>
         <span>What Your Role</span>
@@ -56,10 +52,32 @@
     </footer>
   </main>
 </template>
+
 <script setup>
+import axios from 'axios';
 import { ref } from 'vue';
+const fullname = ref('');
 const email = ref('');
 const password = ref('');
+const repeatPassword = ref('');
+const role = ref('');
+
+const registerUser = async () => {
+  const userData = {
+    fullname: fullname.value,
+    email: email.value,
+    password: password.value,
+    repeatPassword: repeatPassword.value,
+    role: role.value,
+  };
+
+  try {
+    const response = await axios.post('auth/register', userData);
+    console.log(response.data);
+  } catch (error) {
+    console.error('Error registering user:', error);
+  }
+};
 </script>
 <style scoped>
 main {
