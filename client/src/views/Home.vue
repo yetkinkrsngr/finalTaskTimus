@@ -4,12 +4,12 @@
       <router-link to="/">
         <h1 class="logo">POWER APP</h1>
       </router-link>
-      <h2>Welcome to App</h2>
+      <h2>{{ $t('welcome') }}</h2>
       <router-link to="/login">
-        <button class="btn">Login</button>
+        <button class="btn">{{ $t('login') }}</button>
       </router-link>
       <router-link to="/register">
-        <button class="btn">Register</button>
+        <button class="btn">{{ $t('register') }}</button>
       </router-link>
     </header>
     <section></section>
@@ -18,20 +18,31 @@
     </article>
   </main>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 
 const imageSrc = ref('../../public/img/tr.png');
-
+const trLang = {
+  welcome: 'Uygulamaya Hoş Geldiniz',
+  login: 'Giriş',
+  register: 'Kayit Ol',
+};
+const enLang = {
+  welcome: 'Welcome to App',
+  login: 'Login',
+  register: 'Register',
+};
 const toggleLanguage = () => {
-  imageSrc.value =
-    imageSrc.value === '../../public/img/eng.png'
-      ? '../../public/img/tr.png'
-      : '../../public/img/eng.png';
+  const newImage = imageSrc.value.includes('tr') ? 'en.png' : 'tr.png';
+  imageSrc.value = `../../public/img/${newImage}`;
+  if (newImage === 'tr.png') {
+  } else {
+    trLang.welcome = 'Welcome to App';
+    trLang.login = 'Login';
+    trLang.register = 'Register';
+  }
 };
 </script>
-
 <style scoped>
 main {
   position: relative;

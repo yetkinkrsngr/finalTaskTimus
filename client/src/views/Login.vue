@@ -6,17 +6,17 @@
       </router-link>
       <h2>Login</h2>
       <p>
-        login or creater an account to start using the
+        Login or create an account to start using the
         <span class="textChange"> Power Control App</span>
       </p>
     </header>
-    <form @submit.prevent="">
+    <form @submit.prevent="submitForm">
       <label>
-        <span>enter your email</span>
+        <span>Enter your email</span>
         <input type="email" v-model="email" placeholder="test@test.com" />
       </label>
       <label>
-        <span>enter your password</span>
+        <span>Enter your password</span>
         <input
           type="password"
           v-model="password"
@@ -33,11 +33,27 @@
     </footer>
   </main>
 </template>
+
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router'; // Import the useRouter function
+
 const email = ref('');
 const password = ref('');
+
+const router = useRouter(); // Initialize the router
+
+const submitForm = () => {
+  if (email.value === 'yetkin@yetkin.com' && password.value === '123456') {
+    alert('Giriş Başarılı');
+    // Navigate to the "main" route upon successful login
+    router.push({ name: 'Main' });
+  } else {
+    alert('Giriş Başarısız');
+  }
+};
 </script>
+
 <style scoped>
 main {
   display: flex;
@@ -48,9 +64,11 @@ main {
   background-color: var(--primary);
   color: #fff;
 }
+
 header {
   padding: 1.5rem;
 }
+
 footer {
   background-color: #fff;
   width: 100%;
@@ -59,14 +77,17 @@ footer {
   padding: 1.5rem;
   padding-bottom: 3rem;
 }
+
 h2 {
   font-size: 2.125rem;
   margin-bottom: 1rem;
 }
+
 h2 ~ p {
   font-weight: 500;
   font-size: 1rem;
 }
+
 form {
   flex: 1 1 0%;
   display: block;
@@ -77,10 +98,12 @@ form {
   padding: 4rem 1.5rem;
   width: 100%;
 }
+
 label {
   display: block;
   margin-bottom: 1.5rem;
 }
+
 label span {
   display: block;
   color: var(--gray);
@@ -100,10 +123,12 @@ input:not([type='submit']) {
   margin-bottom: 1.5rem;
   background-color: var(--light);
 }
+
 input:not([type='submit'])::placeholder {
   color: var(--gray);
   font-style: italic;
 }
+
 input[type='submit'] {
   display: block;
   width: 100%;
@@ -116,8 +141,9 @@ input[type='submit'] {
   background-color: var(--primary);
   border: none;
   cursor: pointer;
-  transition: all 0.5 ease;
+  transition: all 0.5s ease;
 }
+
 input[type='submit']:hover {
   background: #fff;
   color: var(--primary);

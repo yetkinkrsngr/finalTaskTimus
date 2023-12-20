@@ -1,18 +1,24 @@
 <template>
   <div class="card">
     <div class="imgSide">
-      <img src="../../public/img/Factory.jpg" alt="" />
+      <img :src="imageSrc" alt="" />
     </div>
     <div class="infoSide">
-      <h3 class="nameFactory">Factory 1</h3>
-      <p class="location">Location 1</p>
-      <p class="infoFactory">Power: 1000</p>
+      <h3 class="nameFactory">{{ factoryName }}</h3>
+      <p class="location">{{ location }}</p>
+      <p class="infoFactory">Power: {{ power }}</p>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: 'Card',
+  props: {
+    imageSrc: String,
+    factoryName: String,
+    location: String,
+    power: Number,
+  },
 };
 </script>
 <style>
@@ -21,13 +27,18 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 20rem;
+  width: 15rem;
   height: 20rem;
   background-color: var(--light);
   border-radius: 1rem;
   margin: 1rem;
   padding: 1rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.05);
 }
 .imgSide {
   width: 100%;
